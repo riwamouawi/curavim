@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Hospitals</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <style>
+            #footer
+            {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }           
+            #hospital_list 
+            {
+                background-color: #F2F1F6;
+            }
+
+            #menu
+            {
+                background-color: #15B6B8;    
+           
+        
+            }
+            
+        </style>
+        
+        <script type="text/javascript" charset="utf-8">
+            function onLoad()
+             {
+                  document.addEventListener("deviceready", onDeviceReady, true);
+             }
+
+             function onDeviceReady()
+             {
+                  // navigator.notification.alert("PhoneGap is working");
+             }
+
+             function callAssistance()
+             {
+                //window.location = "index.html";
+                 //window.plugins.CallNumber.callNumber(onSuccess, onError, "18271632", true);
+             }
+            
+            function callHospitalsList()
+             {
+                window.location = "Hospital_List.html";
+             }
+            
+            function onSuccess(result){
+                console.log("Success:"+result);
+                }
+
+                function onError(result) {
+                console.log("Error:"+result);
+                }
+        </script>
+        
+        <script type="text/javascript" charset="utf-8">
+
+             document.addEventListener("deviceready", onDeviceReady, true);
+
+             function onDeviceReady()
+             {     
+                   document.addEventListener("backbutton", BackKeyDown, true);
+             }
+
+             function BackKeyDown()
+             {
+                 //navigator.notification.alert();
+                 //navigator.app.exitApp();  // For Exit Application
+             }
+        </script>
+    </head>
+    <body onload="onLoad();">
+        <div data-role="page" id="page1">
+            <div data-role="header" id="menu">
+                <div>
+                   <center> <h3><font color="white">Concierge Health Services</font></h3></center>
+                </div>
+                <div>
+                     <center>
+                        <button name="buttonClick" onclick="callAssistance()" text-align="center" id="menu">
+                            <font color="white">Assistance</font>
+                        </button>
+                        <button name="buttonClick" onclick="callHospitalsList()" text-align="center" id="menu">
+                            <font color="white">Hospitals</font>
+                        </button>
+                     </center>
+                </div>    
+            </div> <!-- header -->
+            <div data-role="main" class="ui-content">
+                <a class="button" href="tel://123456">1234563</a>
+                <a class="button" href="tel://{{number}}">123456</a>
+            </div> <!-- main -->
+           </div> <!-- page -->
+        
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

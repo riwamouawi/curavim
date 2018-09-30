@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Hospitals</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        
+        <style>
+            #footer
+            {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }           
+            #hospital_list 
+            {
+                background-color: #F2F1F6;
+            }
+
+            #menu
+            {
+                background-color: #15B6B8;    
+           
+        
+            }
+            
+        </style>
+        
+        <script type="text/javascript" charset="utf-8">
+            function onLoad()
+             {
+                  document.addEventListener("deviceready", onDeviceReady, true);
+             }
+
+             function onDeviceReady()
+             {
+                  // navigator.notification.alert("PhoneGap is working");
+             }
+
+             function callAssistance()
+             {
+                window.location = "index.html";
+             }
+            
+            function callHospitalsList()
+             {
+                window.location = "Hospital_List.html";
+             }
+            
+            function onSuccess(result){
+              console.log("Success:"+result);
+            }
+
+            function onError(result) {
+             console.log("Error:"+result);
+            }
+
+            $scope.callNumber = function(number){
+              console.log("Launching Calling Service for number "+number);
+              window.plugins.CallNumber.callNumber(onSuccess, onError, number, false);
+            }
+        </script>
+        
+        <script type="text/javascript" charset="utf-8">
+
+             document.addEventListener("deviceready", onDeviceReady, true);
+
+             function onDeviceReady()
+             {     
+                   document.addEventListener("backbutton", BackKeyDown, true);
+             }
+
+             function BackKeyDown()
+             {
+                 //navigator.notification.alert();
+                 //navigator.app.exitApp();  // For Exit Application
+             }
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-role="header" id="menu">
+                <div>
+                   <center> <h3><font color="white">Concierge Health Services</font></h3></center>
+                </div>
+                <div>
+                     <center>
+                        <button name="buttonClick" onclick="callAssistance()" text-align="center" id="menu">
+                            <font color="white">Assistance</font>
+                        </button>
+                        <button name="buttonClick" onclick="callHospitalsList()" text-align="center" id="menu">
+                            <font color="white">Hospitals</font>
+                        </button>
+                         <button class="button icon ion-ios-telephone" ng-click="callNumber(0123456789)">Call</button>
+                     </center>
+                </div>    
+            </div> <!-- header -->
+            <div data-role="main" class="ui-content">
+        
+            
+            
+            <div data-role="main" class="ui-content">
+               <ul data-role="listview">
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                               Huashan Hospital International Division <br>/ World Wide Medical Center
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                   Address: No.12,Wulumuqi Zhong Rd.,<br>Shanghai 200040 
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    Public
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                 <p>Tel: (86) 21 5288 9999 (switchboard)<br>
+                                 ER: No.493 Huashan Rd,Building<br> 
+                                 N0.1,Ground Floor <br>
+                                 Inpatient Tel: (86) 21 5288 7250 <br>
+                                 Executive Tel: (86) 21 5288 7645</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                                http://www.sh-hwmc.com.cn/
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                   <!-- ----------------------------------------------2--------------------------------------------- -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                               Jiahui Health
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                    Address: Jiahui Medical Center <br>
+                                    (Yangpu)1F/2F, Suite 3, 99 <br>
+                                    Jiangwancheng Road, Shanghai
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    International
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                 <p>Tel: (86) 21 3587 3000(Yangpu)</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                                https://www.jiahui.com/
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                   <!-- -------------------------------------------------3------------------------------------------ -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                               Renai International Medical Center
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                    Address: No.127, Caoxi Rd. Xuhui <br>
+                                    District. Shanghai 200235
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    Public
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                 <p>Tel: (86) 21 5489 3781 <br>
+                                     (86) 21 6468 8888-801/810 <br>
+                                     ER Tel (86) 21 150 2163 3821</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                                http://www.renaihospital.com/?lan=en
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                   <!-- ------------------------------------------------4------------------------------------------- -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                                Renji HOSPITAL <br>
+                                Affiliated to Shanghai Jiao Tong <br>
+                                University School of Medicine <br>
+
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                    Address:Renji Hospital East: No. 160,<br>
+                                    Pujian Road, Pudong New Area <br>
+                                    Renji Hospital South: No. 2000, <br>
+                                    Jiangyue Road, Minhang District <br>
+                                    Renji Hospital West: No. 145, Middle <br>
+                                    Shandong Road, Huangpu District <br>
+                                    Renji Hospital North: No. 845, Lingshan <br>
+                                    Road, Pudong New Area <br>
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    Public
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                 <p>Tel: East: (86) 21 58752345 <br>
+                                     South: (86) 21 58752345 <br>
+                                     West: (86) 21 58752345 <br>
+                                     North: (86) 21 58752345 <br>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                                http://www.renji.com/En/Home/index.aspx
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                   
+                   <!-- ------------------------------------------------5------------------------------------------- -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                                Ruijin Hospital <br>
+                                Affiliated to Shanghai Jiao Tong <br>
+                                University School of Medicine<br>
+
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                     Address: No.197,Rui Jin Er <br>
+                                     Road,Shanghai 200025 <br>
+                                     Zip Code:200025
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    Public
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                   <p>Tel: (86) 21 6437 0045</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                                http://www.rjh.com.cn/chpage/c1352/
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                <!-- ------------------------------------------------6------------------------------------------- -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                                Shanghai Deda Hospital<br>
+                                Delta Health
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                        Address: Xule Road,Xujing <br>
+                                        Town,Qingpu District Shanghai 201702
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    International
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                   <p>Tel: (86) 21 6700 7777</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                                https://www.deltahealth.com.cn/
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                   <!-- ------------------------------------------------7------------------------------------------- -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                                Shanghai East International <br>
+                                Medical Center
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                        Address: 150 Jimo Road Shanghai 200120
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    International
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                   <p>Tel: (86) 21 5879 9999
+                                    (86) 150 0019 0899</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                                http://www.seimc.com.cn/medical/Surgery.htm
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                 <!-- ------------------------------------------------8------------------------------------------- -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                                St Michael Hospital
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                         Address: St. Michael Hospital <br>
+                                         Hong Baoshi Road 388 <br>
+                                         Changning district, Shanghai
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    International
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                   <p>Tel (86) 21 5155 1858</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                                http://www.stmichael-hospital.com/en
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                <!-- ------------------------------------------------9------------------------------------------- -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                                Zhongshan Hospital Affiliated <br>
+                               to Fudan University
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                         Address: No.180, Fenglin Road, <br>
+                                         Xuhui District, Shanghai 200032
+
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    Public
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                   <p>Tel: (86) 21 6404 1990</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                               http://www.zs-hospital.sh.cn/zsyy/n15/index.html
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                   <!-- ------------------------------------------------10------------------------------------------- -->
+                   <li id="hospital_list">
+                       <h2>
+                           <font size = "3" face= "arial">
+                                United Family Healthcare
+                           </font>
+                       </h2>
+                       <div>
+                           <p>
+                               <font size = "2" face="arial" > 
+                                        Address: 1139 Xianxia Road, Changning <br>
+                                        District, Shanghai 200336
+
+                               </font>
+                           </p>
+                           <div align="right" face="arial">
+                                <font size="2" face="arial">
+                                    International
+                                </font>
+                           </div>
+                           <div align="right">
+                               <font face="arial" color="navy">
+                                   <p>el: Appt: (86) 400 639 3900 <br>
+                                         ER: (86) 21 2216 3999 <br>
+                                         Tel: (86) 21 2216 3900</p>
+                              </font>
+                           </div>
+                          
+                       <a href="http://www.sh-hwmc.com.cn/">
+                           <font color="black" size="2">
+                              http://shanghai.ufh.com.cn/
+                           </font>
+                       </a>
+                      </div>       
+                   </li>
+                   
+                   
+                </ul>
+            </div> <!-- main -->
+           </div> <!-- page -->
+        
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>
